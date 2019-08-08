@@ -1,26 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Grid from './Grid.js'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      
+    }
+  }
+  
+  render () {
+    const status = 'play: X'
+    const historyStatus = [1,2].map((value,index) => (
+      <li key={index}>
+        {value}
+      </li>
+    ))
+    return (
+      <div className="game">
+        <div className="game-box">
+          <Grid></Grid>
+        </div>
+        <div className="game-info">
+          <div>{status}</div>
+          <ol>{historyStatus}</ol>
+        </div>
+      </div>
+    )
+  }
 }
 
 export default App;
